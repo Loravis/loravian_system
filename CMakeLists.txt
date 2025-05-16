@@ -5,9 +5,15 @@
 	 
 	list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 	 
+	file(GLOB SOURCES
+		src/cmd/*.cpp
+		headers/*.h
+	)
+
 	# Create an executable
 	add_executable(${PROJECT_NAME}
 	    src/main.cpp
+			${SOURCES}
 	)
 	 
 	# Find our pre-installed DPP package (using FindDPP.cmake).
