@@ -2,11 +2,14 @@
 	cmake_minimum_required(VERSION 3.22)
 	# Project name, version and description
 	project(loravian-system VERSION 1.0 DESCRIPTION "Loravian automation")
+
+	find_package(SQLite3 REQUIRED)
 	 
 	list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 	 
 	file(GLOB SOURCES
 		src/cmd/*.cpp
+		src/db/*.cpp
 		headers/*.h
 	)
 
@@ -22,6 +25,7 @@
 	# Link the pre-installed DPP package.
 	target_link_libraries(${PROJECT_NAME} 
 	    ${DPP_LIBRARIES}
+			SQLite::SQLite3
 	)
 	 
 	# Include the DPP directories.
