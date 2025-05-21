@@ -9,14 +9,14 @@ To install this system and use it yourself, you'll need to compile it from sourc
 - CMake
 - A modern C++ compiler (GCC, Clang, MinGW, etc.)
 
-Clone this repository to a local directory;
+### Clone the repository
 ```
 git clone https://github.com/Loravis/loravian_system
 ```
 
 After cloning, you'll need to create a file named **env.h** within the env directory. Compilation will fail if this file is not present. Instructions can be found [here](https://github.com/Loravis/loravian_system/blob/main/env/README.md). 
 
-Compile;
+### Compile
 ```
 mkdir build
 cd build
