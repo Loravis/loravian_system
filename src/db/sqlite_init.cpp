@@ -19,7 +19,7 @@ namespace sql {
     res = sqlite3_open(path, &DB);
 
     if (res) {
-      std::cout << "Database connection failed: " << sqlite3_errmsg(DB) << std::endl;
+      std::cout << "Database connection failed: " << sqlite3_errmsg(DB) << '\n';
       return -1;
     }
 
@@ -30,7 +30,7 @@ namespace sql {
     res = sqlite3_exec(DB, sql.c_str(), NULL, 0, &errmsg);
 
     if (res != SQLITE_OK) {
-      std::cerr << errmsg << std::endl;
+      std::cerr << errmsg << '\n';
       sqlite3_free(errmsg);
       sqlite3_close(DB);
       return -1;

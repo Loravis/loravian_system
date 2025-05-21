@@ -10,7 +10,7 @@ int main() {
   res = sql::init(SQL_FILE_PATH.c_str());
 
   if (res) {
-    std::cerr << "Init failed. Shutting down..." << std::endl;
+    std::cerr << "Init failed. Shutting down...\n";
     return 0;
   }
 
