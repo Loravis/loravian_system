@@ -7,7 +7,7 @@ This header file defines all environment variables, in form of string constants.
 #include <string>
 
 const std::string BOT_TOKEN = "YOUR_TOKEN_HERE";
-const char* SQL_FILE_PATH = "/sql/file/path";
+const std::string SQL_FILE_PATH = "/sql/file/path";
 
 #endif
 ```
