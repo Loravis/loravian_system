@@ -6,7 +6,7 @@ void cmd::setup_commands(dpp::cluster *bot) {
     if (event.command.get_command_name() == "test") {
       cmd::test(&event);
     } else if (event.command.get_command_name() == "add") {
-      cmd::test(&event);
+      cmd::add(&event);
     }
   });
 }

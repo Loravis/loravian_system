@@ -8,6 +8,7 @@ namespace cmd {
   void create_commands(dpp::cluster* bot);
 
   void test(const dpp::slashcommand_t* event);
+  void add(const dpp::slashcommand_t* event);
 }
 
 #endif

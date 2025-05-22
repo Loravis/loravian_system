@@ -1,7 +1,8 @@
 #include "../../headers/commands.h"
 #include <dpp/colors.h>
+#include <dpp/message.h>
 
-dpp::embed create_embed() {
+dpp::embed create_test_embed() {
   dpp::embed embed = dpp::embed()
     .set_color(dpp::colors::green)
     .set_title("Hello, world!")
@@ -12,6 +13,7 @@ dpp::embed create_embed() {
 };
 
 void cmd::test(const dpp::slashcommand_t *event) {
-  dpp::message msg(event->command.channel_id, create_embed());
+  dpp::message msg(event->command.channel_id, create_test_embed());
+  msg.set_flags(dpp::m_ephemeral);
   event->reply(msg);
 }
