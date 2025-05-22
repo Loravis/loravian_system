@@ -17,6 +17,7 @@ int main() {
   // Initialize bot
   dpp::cluster bot(BOT_TOKEN);
   bot.on_log(dpp::utility::cout_logger());
+  // TODO: Create commands only if necessary
   cmd::create_commands(&bot);
   cmd::setup_commands(&bot);
   bot.start(dpp::st_wait);
