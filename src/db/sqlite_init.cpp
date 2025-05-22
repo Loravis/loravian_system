@@ -4,8 +4,7 @@
 #include "../../headers/sqlite_wrap.h"
 
 namespace sql {
-  int init(const char* path) {
-    sqlite3* DB;
+  int init(const char* path, sqlite3** DB) {
     int res = 0;
     bool create_db = false;
     char* errmsg;
@@ -16,10 +15,10 @@ namespace sql {
       create_db = true;
     }
 
-    res = sqlite3_open(path, &DB);
+    res = sqlite3_open(path, DB);
 
     if (res) {
-      std::cout << "Database connection failed: " << sqlite3_errmsg(DB) << '\n';
+      std::cout << "Database connection failed: " << sqlite3_errmsg(*DB) << '\n';
       return -1;
     }
 
@@ -27,12 +26,12 @@ namespace sql {
       return 0;
     }
 
-    res = sqlite3_exec(DB, sql.c_str(), NULL, 0, &errmsg);
+    res = sqlite3_exec(*DB, sql.c_str(), NULL, 0, &errmsg);
 
     if (res != SQLITE_OK) {
       std::cerr << errmsg << '\n';
       sqlite3_free(errmsg);
-      sqlite3_close(DB);
+      sqlite3_close(*DB);
       return -1;
     }
 

@@ -1,13 +1,15 @@
 #include <dpp/dpp.h>
+#include <sqlite3.h>
 #include "../env/env.h"
 #include "../headers/commands.h"
 #include "../headers/sqlite_wrap.h"
 
 int main() {
   int res = 0;
+  sqlite3* DB;
 
   // Initialize SQLite database
-  res = sql::init(SQL_FILE_PATH.c_str());
+  res = sql::init(SQL_FILE_PATH.c_str(), &DB);
 
   if (res) {
     std::cerr << "Init failed. Shutting down...\n";
