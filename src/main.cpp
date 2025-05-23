@@ -4,6 +4,8 @@
 #include "../headers/commands.h"
 #include "../headers/sqlite_wrap.h"
 
+// TODO: Implement a logger
+
 int main() {
   int res = 0;
   sqlite3* DB;
